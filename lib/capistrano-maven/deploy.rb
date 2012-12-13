@@ -147,7 +147,7 @@ module Capistrano
             execute = []
             execute << "mkdir -p #{dirs.join(' ')}"
             execute << (<<-EOS).gsub(/\s+/, ' ').strip
-              if ! test -f #{archive_file}; then
+              if ! test -f #{bin}; then
                 ( rm -f #{checksum_file}; wget --no-verbose -O #{checksum_file} #{checksum_url} ) &&
                 wget --no-verbose -O #{archive_file} #{archive_url} &&
                 #{_validate_archive(archive_file, checksum_file)} || ( rm -f #{archive_file}; false ) &&
