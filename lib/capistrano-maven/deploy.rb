@@ -90,7 +90,7 @@ module Capistrano
             options << "-P#{mvn_profiles.join(',')}" unless fetch(:mvn_profiles, []).empty?
             options << "-Dmaven.test.skip=true" if fetch(:mvn_skip_tests, false)
             options << "-U" if fetch(:mvn_update_snapshots, false)
-            options << "-B"
+            options << "-B -e"
             options
           }
           _cset(:mvn_options) {
